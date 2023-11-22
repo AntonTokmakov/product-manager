@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   db_pg_15:
     image: postgres:15
@@ -7,4 +8,11 @@ services:
       POSTGRES_PASSWORD: sandbox_password
     ports:
       - 5432
+
+  spring-boot-app:
+    build: .
+    ports:
+      - 8087:8087
+    depends_on:
+      - db_pg_15
 

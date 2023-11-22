@@ -1,6 +1,6 @@
 syntax="proto3";
 
-package com.example.productmanager.grpc;
+package product;
 
 message ProductRequest {
   int64 id = 1;
@@ -9,9 +9,17 @@ message ProductRequest {
 message ProductResponse {
   int64 id = 1;
   string name = 2;
-  string amount = 3;
+  int32 amount = 3;
+}
+
+message DeleteProductResponse{
+  bool isDelete = 1;
 }
 
 service ProductService{
-  rpc product(ProductRequest) returns (ProductResponse);
+
+  rpc getProduct(ProductRequest) returns (ProductResponse);
+
+  rpc deleteProduct(ProductRequest) returns (DeleteProductResponse);
+
 }

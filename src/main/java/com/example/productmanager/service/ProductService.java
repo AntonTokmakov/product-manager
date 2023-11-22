@@ -4,20 +4,18 @@ package com.example.productmanager.service;
 import com.example.productmanager.dto.ProductDto;
 import com.example.productmanager.entity.Product;
 import com.example.productmanager.repository.RepositoryProduct;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ProductService {
 
     private RepositoryProduct repositoryProduct;
-
-    @Autowired
-    public void setRepositoryProduct(RepositoryProduct repositoryProduct) {
-        this.repositoryProduct = repositoryProduct;
-    }
 
     public Product createProduct(ProductDto dto){
         return repositoryProduct.save(Product
