@@ -1,6 +1,6 @@
 syntax="proto3";
 
-package product;
+package com.example.productmanager.generateProto;
 
 message ProductRequest {
   int64 id = 1;
