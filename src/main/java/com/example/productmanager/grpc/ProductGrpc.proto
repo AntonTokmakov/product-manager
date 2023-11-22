@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package com.example.productmanager.grpc;
+
+message ProductRequest {
+  int64 id = 1;
+}
+
+message ProductResponse {
+  int64 id = 1;
+  string name = 2;
+  string amount = 3;
+}
+
+service ProductService{
+  rpc product(ProductRequest) returns (ProductResponse);
+}
